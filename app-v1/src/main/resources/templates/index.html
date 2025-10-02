@@ -1,15 +1,545 @@
 <!DOCTYPE html>
-<html xmlns:th="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roller Speed - Escuela de Patinaje</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .nav-link-active {
+      border-bottom: 2px solid #e11d48;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #ff6b6b, #feca57);
+    }
+    .section-bg {
+      background-color: #f9fafb;
+    }
+    .btn-primary {
+      background-color: #e11d48;
+      border-color: #e11d48;
+    }
+    .btn-primary:hover {
+      background-color: #c9123d;
+      border-color: #c9123d;
+    }
+  </style>
 </head>
-<body>
-    <h1>¡Bienvenido a Speed Roller!</h1>
-    <p>Spring Boot y Thymeleaf funcionando correctamente.</p>
+<body class="font-sans text-gray-800">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="#" class="flex-shrink-0 flex items-center">
+            <i class="fas fa-skateboard text-2xl text-red-600 mr-2"></i>
+            <span class="font-bold text-xl text-gray-900">Roller Speed</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="#corporativo" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-red-600 transition">Corporativo</a>
+          <a href="#mision" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-red-600 transition">Misión</a>
+          <a href="#vision" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-red-600 transition">Visión</a>
+          <a href="#valores" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-red-600 transition">Valores</a>
+          <a href="#servicios" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-red-600 transition">Servicios</a>
+          <a href="#eventos" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-red-600 transition">Eventos</a>
+          <a href="#registro" class="btn-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition">Registro</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="menu-button" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#corporativo" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">Corporativo</a>
+        <a href="#mision" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">Misión</a>
+        <a href="#vision" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">Visión</a>
+        <a href="#valores" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">Valores</a>
+        <a href="#servicios" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">Servicios</a>
+        <a href="#eventos" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">Eventos</a>
+        <a href="#registro" class="block px-3 py-2 rounded-md text-base font-medium bg-red-600 text-white text-center rounded">Registro</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">¡Bienvenidos a Roller Speed!</h1>
+      <p class="text-xl md:text-2xl mb-8 opacity-90">La mejor escuela de patinaje en Santa Marta, Colombia</p>
+      <a href="#registro" class="inline-block bg-white text-red-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105">¡Inscríbete Ahora!</a>
+    </div>
+  </section>
+
+  <!-- Corporativo -->
+  <section id="corporativo" class="py-20 section-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sobre Nosotros</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Roller Speed es una escuela de patinaje fundada en 2015 en Santa Marta, dedicada a formar patinadores de todos los niveles con enfoque en seguridad, disciplina y pasión por el deporte.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover text-center">
+          <i class="fas fa-users text-4xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-bold mb-3">Más de 1,200 Alumnos</h3>
+          <p class="text-gray-600">Cada año formamos a cientos de jóvenes y niños en técnicas de patinaje avanzado y recreativo.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover text-center">
+          <i class="fas fa-trophy text-4xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-bold mb-3">Campeones Regionales</h3>
+          <p class="text-gray-600">Nuestros alumnos han ganado más de 50 medallas en competencias nacionales.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover text-center">
+          <i class="fas fa-award text-4xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-bold mb-3">Instructores Certificados</h3>
+          <p class="text-gray-600">Todos nuestros instructores están certificados por la Federación Colombiana de Patinaje.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Misión -->
+  <section id="mision" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-2xl p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Nuestra Misión</h2>
+        <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
+          Fomentar el desarrollo integral de niños, jóvenes y adultos mediante el patinaje, promoviendo valores como el trabajo en equipo, la disciplina, la superación personal y la salud física, en un entorno seguro, inclusivo y divertido.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visión -->
+  <section id="vision" class="py-20 section-bg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Nuestra Visión</h2>
+        <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
+          Ser la escuela de patinaje más reconocida y confiable de la región Caribe, referente en formación deportiva y educación integral, con programas innovadores y una comunidad activa que inspira a nuevas generaciones.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section id="valores" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestros Valores</h2>
+        <p class="text-lg text-gray-600">Fundamentos que guían cada acción de nuestra escuela</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md text-center card-hover">
+          <i class="fas fa-heart text-4xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-bold mb-3">Pasión</h3>
+          <p class="text-gray-600">Amamos lo que hacemos y lo transmitimos en cada clase.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md text-center card-hover">
+          <i class="fas fa-handshake text-4xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-bold mb-3">Integridad</h3>
+          <p class="text-gray-600">Actuamos con honestidad y ética en todas nuestras relaciones.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md text-center card-hover">
+          <i class="fas fa-users text-4xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-bold mb-3">Inclusión</h3>
+          <p class="text-gray-600">Todos son bienvenidos, sin importar su nivel o antecedentes.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md text-center card-hover">
+          <i class="fas fa-graduation-cap text-4xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-bold mb-3">Aprendizaje</h3>
+          <p class="text-gray-600">Fomentamos el crecimiento continuo y la mejora constante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="py-20 section-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
+        <p class="text-lg text-gray-600">Programas diseñados para todos los niveles y edades</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover">
+          <img src="https://placehold.co/400x250/ff6b6b/ffffff?text=Clases+Principiantes" alt="Clases para Principiantes" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-bold mb-3">Clases para Principiantes</h3>
+          <p class="text-gray-600 mb-4">Aprende los fundamentos del patinaje con seguridad y confianza.</p>
+          <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Inscribirse <i class="fas fa-arrow-right ml-1"></i></a>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover">
+          <img src="https://placehold.co/400x250/feca57/ffffff?text=Competencia" alt="Preparación para Competencias" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-bold mb-3">Preparación para Competencias</h3>
+          <p class="text-gray-600 mb-4">Entrenamiento especializado para torneos nacionales e internacionales.</p>
+          <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Inscribirse <i class="fas fa-arrow-right ml-1"></i></a>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover">
+          <img src="https://placehold.co/400x250/4ecdc4/ffffff?text=Adultos" alt="Clases para Adultos" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-bold mb-3">Clases para Adultos</h3>
+          <p class="text-gray-600 mb-4">Mantente activo, tonifica tu cuerpo y diviértete con patinaje recreativo.</p>
+          <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Inscribirse <i class="fas fa-arrow-right ml-1"></i></a>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover">
+          <img src="https://placehold.co/400x250/45b7d1/ffffff?text=Infantil" alt="Clases Infantiles" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-bold mb-3">Clases Infantiles</h3>
+          <p class="text-gray-600 mb-4">Desarrollo motor, coordinación y socialización a través del patinaje.</p>
+          <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Inscribirse <i class="fas fa-arrow-right ml-1"></i></a>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover">
+          <img src="https://placehold.co/400x250/96ceb4/ffffff?text=Taller" alt="Talleres Especiales" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-bold mb-3">Talleres Especiales</h3>
+          <p class="text-gray-600 mb-4">Manejo de obstáculos, patinaje artístico y seguridad vial.</p>
+          <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Inscribirse <i class="fas fa-arrow-right ml-1"></i></a>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md card-hover">
+          <img src="https://placehold.co/400x250/fd79a8/ffffff?text=Privado" alt="Clases Privadas" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-bold mb-3">Clases Privadas</h3>
+          <p class="text-gray-600 mb-4">Entrenamiento personalizado según tus objetivos y ritmo.</p>
+          <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Inscribirse <i class="fas fa-arrow-right ml-1"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eventos -->
+  <section id="eventos" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Próximos Eventos</h2>
+        <p class="text-lg text-gray-600">No te pierdas nuestras actividades especiales</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+          <img src="https://placehold.co/600x300/e11d48/ffffff?text=Torneo+Regional" alt="Torneo Regional" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Torneo Regional de Patinaje</h3>
+            <p class="text-gray-600 mb-4">Participa con tus hijos en nuestro torneo anual con premios y reconocimientos.</p>
+            <div class="flex items-center text-gray-500 mb-4">
+              <i class="fas fa-calendar-alt mr-2"></i>
+              <span>15 de junio de 2024</span>
+            </div>
+            <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Más información <i class="fas fa-arrow-right ml-1"></i></a>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+          <img src="https://placehold.co/600x300/feca57/ffffff?text=Semana+del+Patinaje" alt="Semana del Patinaje" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Semana del Patinaje</h3>
+            <p class="text-gray-600 mb-4">Clases gratuitas, demostraciones y actividades familiares durante una semana completa.</p>
+            <div class="flex items-center text-gray-500 mb-4">
+              <i class="fas fa-calendar-alt mr-2"></i>
+              <span>22 al 28 de julio de 2024</span>
+            </div>
+            <a href="#registro" class="text-red-600 font-medium inline-flex items-center">Más información <i class="fas fa-arrow-right ml-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendario de Clases -->
+  <section class="py-20 section-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calendario de Clases</h2>
+        <p class="text-lg text-gray-600">Horarios disponibles para estudiantes y instructores</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+          <thead class="bg-red-600 text-white">
+            <tr>
+              <th class="py-3 px-6 text-left">Día</th>
+              <th class="py-3 px-6 text-left">Hora</th>
+              <th class="py-3 px-6 text-left">Nivel</th>
+              <th class="py-3 px-6 text-left">Instructor</th>
+              <th class="py-3 px-6 text-left">Capacidad</th>
+              <th class="py-3 px-6 text-left">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+              <td class="py-4 px-6">Lunes</td>
+              <td class="py-4 px-6">16:00 - 17:30</td>
+              <td class="py-4 px-6">Principiantes</td>
+              <td class="py-4 px-6">María González</td>
+              <td class="py-4 px-6">12/15</td>
+              <td class="py-4 px-6">
+                <a href="#registro" class="text-red-600 hover:text-red-800 font-medium">Inscribirse</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="py-4 px-6">Martes</td>
+              <td class="py-4 px-6">17:00 - 18:30</td>
+              <td class="py-4 px-6">Intermedio</td>
+              <td class="py-4 px-6">Carlos Ruiz</td>
+              <td class="py-4 px-6">10/12</td>
+              <td class="py-4 px-6">
+                <a href="#registro" class="text-red-600 hover:text-red-800 font-medium">Inscribirse</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="py-4 px-6">Miércoles</td>
+              <td class="py-4 px-6">16:30 - 18:00</td>
+              <td class="py-4 px-6">Avanzado</td>
+              <td class="py-4 px-6">Andrés Pérez</td>
+              <td class="py-4 px-6">8/10</td>
+              <td class="py-4 px-6">
+                <a href="#registro" class="text-red-600 hover:text-red-800 font-medium">Inscribirse</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="py-4 px-6">Jueves</td>
+              <td class="py-4 px-6">17:30 - 19:00</td>
+              <td class="py-4 px-6">Adultos</td>
+              <td class="py-4 px-6">Laura Díaz</td>
+              <td class="py-4 px-6">14/15</td>
+              <td class="py-4 px-6">
+                <a href="#registro" class="text-red-600 hover:text-red-800 font-medium">Inscribirse</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="py-4 px-6">Sábado</td>
+              <td class="py-4 px-6">10:00 - 11:30</td>
+              <td class="py-4 px-6">Infantil</td>
+              <td class="py-4 px-6">María González</td>
+              <td class="py-4 px-6">15/15</td>
+              <td class="py-4 px-6">
+                <a href="#registro" class="text-red-600 hover:text-red-800 font-medium">Inscribirse</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registro -->
+  <section id="registro" class="py-20 bg-red-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¡Inscríbete Ahora!</h2>
+        <p class="text-xl opacity-90">Completa el formulario y comienza tu aventura en Roller Speed</p>
+      </div>
+      <form class="bg-white text-gray-800 p-8 rounded-lg shadow-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium mb-1">Nombre Completo *</label>
+            <input type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Fecha de Nacimiento *</label>
+            <input type="date" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Género *</label>
+            <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" required>
+              <option value="">Seleccionar</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Teléfono *</label>
+            <input type="tel" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" required>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium mb-1">Correo Electrónico *</label>
+            <input type="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" required>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium mb-1">Tipo de Inscripción *</label>
+            <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" required>
+              <option value="">Seleccionar</option>
+              <option value="estudiante">Estudiante (Clases regulares)</option>
+              <option value="instructor">Instructor (Postulación)</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium mb-1">Método de Pago *</label>
+            <div class="flex space-x-4">
+              <label class="flex items-center">
+                <input type="radio" name="payment" value="tarjeta" class="mr-2" required>
+                Tarjeta de Crédito/Débito
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="payment" value="efectivo" class="mr-2">
+                Efectivo
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="payment" value="transferencia" class="mr-2">
+                Transferencia
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 text-center">
+          <button type="submit" class="btn-primary text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-red-700 transition transform hover:scale-105">
+            Enviar Inscripción
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-20 section-bg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Testimonios</h2>
+        <p class="text-lg text-gray-600">Lo que dicen nuestros alumnos y padres</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="flex justify-center mb-4">
+            <img src="https://placehold.co/80x80/ff6b6b/ffffff?text=J" alt="Juan" class="rounded-full w-20 h-20 object-cover border-2 border-red-100">
+          </div>
+          <p class="text-gray-600 italic mb-4">"Mi hijo empezó con cero experiencia y ahora participa en torneos. ¡Gracias Roller Speed!"</p>
+          <h4 class="font-bold">Juan Martínez - Padre</h4>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="flex justify-center mb-4">
+            <img src="https://placehold.co/80x80/feca57/ffffff?text=L" alt="Luisa" class="rounded-full w-20 h-20 object-cover border-2 border-red-100">
+          </div>
+          <p class="text-gray-600 italic mb-4">"Aprendí a patinar a los 30 años. Nunca pensé que podría hacerlo, pero aquí me siento en casa."</p>
+          <h4 class="font-bold">Luisa Gómez - Alumna</h4>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="flex justify-center mb-4">
+            <img src="https://placehold.co/80x80/4ecdc4/ffffff?text=A" alt="Ana" class="rounded-full w-20 h-20 object-cover border-2 border-red-100">
+          </div>
+          <p class="text-gray-600 italic mb-4">"Los instructores son excelentes. Me prepararon para ganar la competencia nacional."</p>
+          <h4 class="font-bold">Ana Rodríguez - Campeona Regional</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Galería</h2>
+        <p class="text-lg text-gray-600">Momentos inolvidables en Roller Speed</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <img src="https://placehold.co/300x200/ff6b6b/ffffff?text=Clase+1" alt="Clase" class="rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition cursor-pointer">
+        <img src="https://placehold.co/300x200/feca57/ffffff?text=Clase+2" alt="Clase" class="rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition cursor-pointer">
+        <img src="https://placehold.co/300x200/4ecdc4/ffffff?text=Torneo" alt="Torneo" class="rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition cursor-pointer">
+        <img src="https://placehold.co/300x200/45b7d1/ffffff?text=Infantil" alt="Infantil" class="rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition cursor-pointer">
+        <img src="https://placehold.co/300x200/96ceb4/ffffff?text=Adultos" alt="Adultos" class="rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition cursor-pointer">
+        <img src="https://placehold.co/300x200/fd79a8/ffffff?text=Premios" alt="Premios" class="rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition cursor-pointer">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Roller Speed</h3>
+          <p class="text-gray-400">La mejor escuela de patinaje en Santa Marta, Colombia. Formando campeones desde 2015.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="#corporativo" class="text-gray-400 hover:text-white transition">Corporativo</a></li>
+            <li><a href="#mision" class="text-gray-400 hover:text-white transition">Misión</a></li>
+            <li><a href="#valores" class="text-gray-400 hover:text-white transition">Valores</a></li>
+            <li><a href="#servicios" class="text-gray-400 hover:text-white transition">Servicios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><i class="fas fa-map-marker-alt mr-2"></i> Calle 12 #45-67, Santa Marta</li>
+            <li><i class="fas fa-phone mr-2"></i> +57 312 345 6789</li>
+            <li><i class="fas fa-envelope mr-2"></i> contacto@rollerspeed.com</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Síguenos</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp text-xl"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2024 Roller Speed. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+        
+        // Close mobile menu if open
+        if (window.innerWidth < 768) {
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Active nav link on scroll
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 100) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('nav-link-active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('nav-link-active');
+        }
+      });
+    });
+
+    // Form submission handling (mock)
+    document.querySelector('#registro form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Gracias por tu inscripción! En breve nos pondremos en contacto contigo.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
-
-
-
-

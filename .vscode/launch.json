@@ -9,6 +9,16 @@
             "projectName": "app-v1",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RollerSpeedApplication<rollerspeed>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.speedroller.app_v1.RollerSpeedApplication",
+            "projectName": "rollerspeed",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
