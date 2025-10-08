@@ -3,16 +3,20 @@ package com.speedroller.app_v1.controller;
 import java.util.Collections;
 import java.util.Optional;
 
-import com.speedroller.app_v1.model.Role;
-import com.speedroller.app_v1.model.Usuario;
-import com.speedroller.app_v1.repository.UsuarioRepository;
-import com.speedroller.app_v1.repository.RoleRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.speedroller.app_v1.model.Role;
+import com.speedroller.app_v1.model.Usuario;
+import com.speedroller.app_v1.repository.RoleRepository;
+import com.speedroller.app_v1.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/api/auth")
