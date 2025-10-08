@@ -1,7 +1,5 @@
 package com.speedroller.app_v1.controller;
 
-import com.speedroller.app_v1.model.Estudiante;
-import com.speedroller.app_v1.service.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import com.speedroller.app_v1.model.Estudiante;
+import com.speedroller.app_v1.service.EstudianteService;
 
 @Controller
 public class RegistroController {
@@ -36,7 +34,7 @@ public class RegistroController {
 
         try {
             Estudiante estudiante = estudianteService.guardarEstudiante(
-                    nombre, fechaNacimiento, genero, telefono, correo, tipoInscripcion, metodoPago
+                    nombre, fechaNacimiento, genero, telefono, correo, tipoInscripcion, metodoPago, ""
             );
             model.addAttribute("mensaje", "¡Inscripción exitosa! Gracias " + estudiante.getNombre());
             model.addAttribute("exito", true);
